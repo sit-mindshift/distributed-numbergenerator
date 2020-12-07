@@ -9,20 +9,20 @@ Check the build.gradle file and ensure that the `GOOGLE_APPLICATION_CREDENTIALS`
 environment "GOOGLE_APPLICATION_CREDENTIALS", "D:\\programming\\sdng\\playground-9d6aac7e886e.json" 
 ```
 
-###Execute the benchmark:
+##Execute the benchmark:
 ```
 $ ./gradlew test -i
 ```
 
 
-###Benchmark Parameters:
+##Benchmark Parameters:
 Variable | Short |Meaning
 ---------------- | ------------- | -------------
 `SdngApplicationTests.NUMBERS_OF_THREADS`  | NOT | is the number of threads running in parallel trying to generate new numbers
 `SdngApplicationTests.NUMBERS_PER_THREAD` | NPT | is the number numbers each thread wants to generate
 `NumberCounterService.COUNTER_RESERVATION_STEPS`  | CRS | is the amount of numbers which gets reserved for each memory segment 
  
- ###Benchmark Results:
+ ##Benchmark Results:
  NOT | NPT | CRS | Numbers per second
  ---------------- | ------------- | -------------| -------------
  10 | 2000 | 100 | **578**
