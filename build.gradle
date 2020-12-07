@@ -1,0 +1,41 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.3.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+
+group = 'schwarz.numbers'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('springCloudVersion', "Hoxton.SR9")
+}
+
+dependencies {
+	implementation 'org.springframework.cloud:spring-cloud-gcp-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-gcp-starter-data-datastore'
+
+
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
+
+test {
+	environment "GOOGLE_APPLICATION_CREDENTIALS", "D:\\programming\\sdng\\playground-9d6aac7e886e.json"
+	useJUnitPlatform()
+}
+
+//reports.html.enabled = false
+//reporting.baseDir = "my-reports"
+//testResultsDirName = "$buildDir/my-test-results"
